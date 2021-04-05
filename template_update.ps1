@@ -59,7 +59,7 @@ if ($state -ne 2) {
     $string0 = $list0 | Out-String
     $string1 = $list1 | Out-String
     $string2 = $list2 | Out-String
-    $string0 + $delimiter + "`r`n" + $string1 + $delimiter + "`r`n" + $string2 | Set-Content $file
+    $string0 + $delimiter + "`r`n" + $string1 + $delimiter + "`r`n" + $string2.trimend() | Set-Content $file
   }
 
 #}

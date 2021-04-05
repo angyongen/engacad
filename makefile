@@ -15,5 +15,9 @@ update_all: template_update.ps1 template.html index.html projects.html about.htm
 	
 	powershell $(update_header_command) 'Projects - Navigation Bar' 'projects/navbar/index.html'
 	powershell $(update_nav_command) 'inactive,active,inactive' 'projects/navbar/index.html'
+	
+	powershell $(update_header_command) 'Projects - Creating Github Repository' 'projects/github/index.html'
+	powershell $(update_nav_command) 'inactive,active,inactive' 'projects/github/index.html'
 	powershell -Command "cd..; Start-Process engacad/TinyWebServer.exe"
+
 
