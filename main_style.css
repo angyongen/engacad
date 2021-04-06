@@ -24,10 +24,10 @@
 .content div>ol, .content div>ul {padding-left:5em;padding-right:0}
 .content img { max-width: 100%; margin:0.5em;}
 
-.todo-list li:after{white-space:nowrap;color: white;margin-left:1em;padding: 1px; font-size: 0.9em;}
+.todo-list li:before{white-space:nowrap;color: white;margin-right:1em;padding: 1px; font-size: 0.9em;}
 
-.todo-list li.done:after{content:'(✓ done)'; background: green;}
-.todo-list li:not(.done):after{content:'(✗ incomplete)';background: red; }
+.todo-list li.done:before      {content:'(✓ done!)'; background: green;}
+.todo-list li:not(.done):before{content:'(✗ to-do)';background: red; }
 
 nav ul {
   list-style-type: none;
