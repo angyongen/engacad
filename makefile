@@ -4,6 +4,7 @@ update_header_command = -File 'template_update.ps1' 'template.html' '<!--HEADER 
 update_all: template_update.ps1 template.html index.html projects.html about.html projects/navbar/index.html
 	powershell Set-ExecutionPolicy -Scope CurrentUser Unrestricted
 	powershell -Command "Get-Process TinyWebServer -ErrorAction SilentlyContinue | Stop-Process; exit"
+	
 	powershell $(update_header_command) 'Home' 'index.html'
 	powershell $(update_nav_command) 'active,inactive,inactive' 'index.html'
 
@@ -18,6 +19,10 @@ update_all: template_update.ps1 template.html index.html projects.html about.htm
 	
 	powershell $(update_header_command) 'Projects - Creating Github Repository' 'projects/github/index.html'
 	powershell $(update_nav_command) 'inactive,active,inactive' 'projects/github/index.html'
+
+	powershell $(update_header_command) 'Projects - TinyWebServer' 'projects/tinywebserver/index.html'
+	powershell $(update_nav_command) 'inactive,active,inactive' 'projects/tinywebserver/index.html'
+
 	powershell -Command "cd..; Start-Process engacad/TinyWebServer.exe"
 
 
