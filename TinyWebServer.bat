@@ -1,6 +1,7 @@
 @set script=^
 Write-Host; ^
 Write-Host Working Directory: $PWD; ^
+$host.ui.RawUI.WindowTitle = 'TinyWebServer : ' + $PWD; ^
 Add-Type -AssemblyName System.Web; ^
 $listener = New-Object System.Net.HttpListener; ^
 $prefix = 'http://localhost:8080/'; ^

@@ -1,0 +1,1 @@
+powershell -Command "cd..; Get-Process | Where-Object {$_.mainWindowTitle -eq 'TinyWebServer : ' + $PWD} | Stop-Process; exit"

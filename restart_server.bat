@@ -1,3 +1,2 @@
-powershell -Command "Get-Process TinyWebServer -ErrorAction SilentlyContinue | Stop-Process; exit"
-cd ..
-powershell -Command "Start-Process engacad/TinyWebServer"
+call stop_server.bat
+powershell -Command "cd ..; Start-Process engacad/TinyWebServer"
