@@ -33,6 +33,83 @@
 	</header>
 	<div class="content">
 		<div>
+			<h1>TinyWebServer</h1>
+			<p>
+				So originally I was using a precompiled exe file called "TinyWebServer.exe" 
+				to create a server on my local Windows machine.
+				<br>
+				This file is actually the compiled version of my fork of "win32-c-http" by aaronryank.
+				Here is a link to the repository.
+				<a href="https://github.com/angyongen/win32-c-http">
+					https://github.com/angyongen/win32-c-http
+				</a>
+				However, I got some warnings from GitHub through my email 
+				telling me that I should not distribute binary files through Github Pages.
+			</p>
+			<img src="images/warning.png">
+			<p>
+				This is what it said:
+			</p>
+			<p>
+				"The page build completed successfully, but returned the following warning for the `main` branch:<br><br>It looks like you're using GitHub Pages to distribute binary files. We strongly suggest that you use releases to ship projects on GitHub. Releases are GitHub's way of packaging and providing software to your users. You can think of it as a replacement to using downloads to provide software. We found the following file(s) which may be a good candidate for releases: TinyWebServer.exe. For more information, see <a href="https://docs.github.com/github/administering-a-repository/about-releases">https://docs.github.com/github/administering-a-repository/about-releases</a>."
+			</p>
+			<p>
+				Fair enough, I guess.
+			</p>
+			<p>
+				So, I set about making a replacement that is completely in source code and is easy to run.
+				Scripting languages seemed like a good choice. 
+				I remembered that Powershell supported Microsoft .NET classes
+				which probably have the ability to create network sockets
+				and so I thought it could be possible to create the web server there.
+			</p>
+			<p>
+				It turned out to be easier than I thought. 
+			</p>
+			<p>
+				I stumbled across this article
+				<a href="https://4sysops.com/archives/building-a-web-server-with-powershell/">"Building a web server with PowerShell"</a>
+				which mentioned about the 
+				<a href="https://docs.microsoft.com/en-us/dotnet/api/system.net.httplistener?view=net-5.0">System.Net.HttpListener</a> class.
+				After I learnt how to use it, I created a hybrid batch + powershell script
+				so that I can run it by simply opening the file.
+				This is because for some reason, my computer does not run powershell scripts on double click
+			</p>
+			<p>
+				Unfortunately, this created some problems.
+				As I said, before this i was using an exe file. 
+				A nice thing about the compiled application is that I can close it by using the image name.
+				I need to close the application when I am updating the html files and reopen it after I am done.
+				In this case, the image name is "TinyWebServer.exe"
+			</p>
+			<img src="images/tinywebserver_exe_1.png">
+			<img src="images/tinywebserver_exe_2.png">
+			<p>
+				However, now that i switched from using exe file to batch powershell hybrid,
+				the image name will be the interpreter executable instead. So, "cmd.exe" and "powershell.exe"
+			</p>
+			<img src="images/tinywebserver_bat_1.png">
+			<img src="images/tinywebserver_bat_2.png">
+			<p>
+				It would not be possible to use the image name to distinguish between a regular script
+				and my TinyWebServer script.
+			</p>
+			<p>
+				Looking at the 
+				<a href="
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.1">Get-Process command</a>,
+				another thing it can use to distinguish between processes is the window title.
+			</p>
+			<img src="images/powershell_use_title.png">
+			<p>
+				So I search up how to change the window title
+			</p>
+			<img src="images/powershell_title.png">
+			<p>
+				And with that I finally have a working TinyWebServer.bat!
+				<br>
+				You can look at the code <a href="https://github.com/angyongen/engacad/blob/main/TinyWebServer/TinyWebServer.bat">here</a>
+			</p>
 		</div>
 	</div>
 </body>
