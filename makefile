@@ -24,6 +24,8 @@ update_all: template_update.ps1 template.html index.html projects.html about.htm
 	powershell $(update_header_command) 'Projects - TinyWebServer' 'projects/tinywebserver/index.html'
 	powershell $(update_nav_command) 'inactive,active,inactive' 'projects/tinywebserver/index.html'
 
+	powershell $(update_header_command) 'Projects - CA1a (How Stuff Works)' 'projects/ca1a/index.html'
+	powershell $(update_nav_command) 'inactive,active,inactive' 'projects/ca1a/index.html'
 	restart_server.bat
 
 
