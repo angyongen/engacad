@@ -38,7 +38,7 @@ nav li {
   float: left;
 }
 nav li a, .nav_text{
-  padding: 1em;
+  padding: 0.6em;
   display: block;
   text-align: center;
   text-decoration: none;
