@@ -26,8 +26,8 @@
 
 .todo-list li:before{white-space:nowrap;color: white;margin-right:1em;padding: 1px; font-size: 0.9em;}
 
-.todo-list li.done:before      {content:'(✓ done!)'; background: green;}
-.todo-list li:not(.done):before{content:'(✗ to-do)';background: red; }
+.todo-list li.done:before      {content:'(\2713  done!)'; background: green;}
+.todo-list li:not(.done):before{content:'(\2717  to-do)';background: red; }
 
 nav ul {
   list-style-type: none;
