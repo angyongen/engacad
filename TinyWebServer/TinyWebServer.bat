@@ -17,12 +17,13 @@ while ($listener.IsListening) { ^
 	$URL = $Context.Request.Url.LocalPath; ^
 	Write-Host 'Requested URL' $URL; ^
 	if ($URL -eq '/') {$URL = '/index.html';} ^
-	$localURL = 'TmpPsDrive:' + $URL; ^
-	$Content = Get-Content -Encoding Byte -Path $localURL; ^
-	if ($Content) { ^
+	$localURL = Convert-Path ('TmpPsDrive:' + $URL); ^
+	if ($localURL) { ^
 		$mime = [System.Web.MimeMapping]::GetMimeMapping($localURL); ^
 		$Context.Response.ContentType = $mime; ^
-		$Context.Response.OutputStream.Write($Content, 0, $Content.Length); ^
+		$FileStream = New-Object IO.FileStream $localURL, 'Open'; ^
+		$FileStream.CopyTo($Context.Response.OutputStream); ^
+		$FileStream.Close(); ^
 	} ^
 	$Context.Response.Close(); ^
 	Write-Host 'Served URL' $localURL; ^
