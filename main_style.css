@@ -37,7 +37,7 @@ nav ul {
 nav li {
   float: left;
 }
-nav li a, .nav_text{
+.nav_link, .nav_text{
   padding: 0.6em;
   display: block;
   text-align: center;
@@ -48,15 +48,15 @@ nav li a, .nav_text{
   padding-left: 2em;
   color: #eee;
 }
-nav li a {
+.nav_link {
   border: 1px solid #ddd;
   color: #000;
   background-color: #bbb;
 }
 /*todo:fade in, fade out*/
-nav li a:hover {
+.nav_link:hover {
   color: blue;
 }
-nav li a.active {
+.nav_link.active {
   background-color: yellow;
 }
